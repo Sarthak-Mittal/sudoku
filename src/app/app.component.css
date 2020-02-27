@@ -1,0 +1,14 @@
+
+.jumbotron{
+  height: 6em;
+}
+h3 {
+  font-family: Lato;
+}
+
+.ls-cover{
+  background-color: rgba(104, 104, 104, 0.712);
+}
+.mr-cover{
+  background-color: rgb(255, 255, 255);
+}
