@@ -6,29 +6,16 @@
   <div class="col-md-3">
     <div *ngFor ='let row of data; let i=index' class="d-flex justify-content-center" >
       <div *ngFor ='let cell of row; let j=index' class="d-flex justify-content-center">
-        
-        <!-- Enabled 
-                  (click)="open(content)"
-        -->
         <div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'" >
           <div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''" >        
             <button 
-              *ngIf="cell.clickable" 
+              [disabled]="!cell.s" 
               id="{{i+1}}-{{j+1}}" 
-              class="square enable" 
+              class="square" 
+              [ngClass]="cell.s ? 'enable':'disable' "
               (click)="open(i,j,content)"
             >
-              {{cell.value}}
-            </button>
-            
-            <!-- Disabled -->
-            <button 
-              *ngIf="! cell.clickable" 
-              id="{{i+1}}-{{j+1}}" 
-              class="square disable" 
-              disabled
-            >
-              {{cell.value}}
+              {{cell.v}}
             </button>
           </div>
         </div>
@@ -44,8 +31,10 @@
     </button>
   </div> -->
   <!-- <div class="modal-body"> -->
-    <app-num-picker 
+    
+    <app-num-picker (click)="modal.dismiss('Cross click')"
       (messageEvent)="recieveValue($event)">
     </app-num-picker>
+    
   <!-- </div> -->
 </ng-template>
