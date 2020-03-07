@@ -6,10 +6,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { NumPickerComponent } from './num-picker/num-picker.component';
+import { GridComponent } from './grid/grid.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule,NgbModule ],
-  declarations: [ AppComponent, NumPickerComponent ],
+  imports:      [ BrowserModule, FormsModule, HttpClientModule, NgbModule ],
+  declarations: [ AppComponent, NumPickerComponent, GridComponent ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
