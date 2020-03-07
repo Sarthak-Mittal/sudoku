@@ -15,14 +15,25 @@
               [ngClass]="cell.s ? 'enable':'disable' "
               (click)="open(i,j,content)"
             >
-              {{cell.v}}
+             <span> {{cell.v}} </span>
             </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <div class="difficulty">
+    <button class="levels"
+            (click)="setDifficulty('easy')">Easy</button>
+    <button class="levels" 
+            (click)="setDifficulty('medium')">Medium</button>
+    <button class="levels" 
+            (click)="setDifficulty('advanced')">Advanced</button>
+  </div>
+<!-- <mat-slider></mat-slider> -->
 </div>
+
+  <!-- [displayWith]="formatLabel" -->
 
 <ng-template #content let-modal>
   <!-- <div class="modal-header">

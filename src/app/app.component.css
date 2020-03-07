@@ -7,8 +7,24 @@ h3 {
 }
 
 .ls-cover{
-  background-color: rgba(104, 104, 104, 0.712);
+  background-color: rgba(175, 172, 5, 0.884);
+  /* background-color: rgba(175, 5, 110, 0.884); */
 }
 .mr-cover{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+}
+
+.difficulty {
+  margin: 2em;
+}
+
+.levels{
+  margin-right: 0.5em;
+  border: none;
+  margin-left: 0.5em;
+  background-color: rgb(206, 228, 85);
+  border-radius: 0.4em;
+  padding: 0.1em 1.2em;
+  /* text-transform: uppercase; */
+
 }
