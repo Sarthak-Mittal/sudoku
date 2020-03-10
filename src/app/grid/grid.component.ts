@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges  } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges  } from '@angular/core';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
@@ -19,16 +19,19 @@ export class GridComponent implements OnInit,OnChanges  {
 
   ngOnChanges(changes: SimpleChanges) {
     // Input change handling logic goes here   
+    alert('Generate now')
+     this.generateSudoku()
+    alert('inchnage'+this.numberOfCellsDisabled)
+      this.randomizeDisableCells(this.numberOfCellsDisabled);
   }
 
   constructor(private modalService: NgbModal) {
     // this.solutionData = this.data;
   }
    ngOnInit() {
-     this.generateSudoku()
-    this.randomizeDisableCells(this.numberOfCellsDisabled);
-    this.solutionData = this.data;
-    this.removeData();
+
+    // this.solutionData = this.data;
+    // this.removeData();
 
   }
 
@@ -133,6 +136,12 @@ export class GridComponent implements OnInit,OnChanges  {
   randomizeDisableCells(noOfCells) {
     var xRan, yRan, counter = 0;
 
+    for(var j = 0; j < 9; j++) {
+      for(var i = 0; i < 9; i++) {
+        this.data[j][i].s == true
+      }
+    }
+
     while (counter < noOfCells) {
       xRan = this.getRandomInt(9);
       yRan = this.getRandomInt(9);  
@@ -143,6 +152,9 @@ export class GridComponent implements OnInit,OnChanges  {
         continue;
       }
     }
+
+    this.removeData();
+
   }
 
   // get Random number between 0 and 'max'
