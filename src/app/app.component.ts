@@ -32,12 +32,7 @@ export class AppComponent implements OnInit{
     }
   }
   constructor(private modalService: NgbModal) {
-    // this.solutionData = this.data;
-    //  this.generateSudoku()
-    // this.randomizeDisableCells(this.numberOfCellsDisabled);
-    // this.solutionData = this.data;
-    // this.removeData();
-//     this.generateSudoku()
+   
     }
 
  ngOnInit() {
