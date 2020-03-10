@@ -31,9 +31,6 @@ export class GridComponent implements OnInit,OnChanges  {
   }
    ngOnInit() {
 
-    // this.solutionData = this.data;
-    // this.removeData();
-
   }
 
 
@@ -142,8 +139,6 @@ export class GridComponent implements OnInit,OnChanges  {
         this.data[j][i].s == true
       }
     }
-    alert('all set To true');
-    alert('level sent'+noOfCells);
 
     while (counter < noOfCells) {
       xRan = this.getRandomInt(9);
@@ -156,8 +151,6 @@ export class GridComponent implements OnInit,OnChanges  {
       }
     }
 
-      alert('disabled as per level');
-
     // this.removeData();
 
     for(var j = 0; j < 9; j++) {
@@ -166,8 +159,6 @@ export class GridComponent implements OnInit,OnChanges  {
           this.data[j][i].v = null
       }
     }
-
-    alert('Removed cell data')
 
 
   }
