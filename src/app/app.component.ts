@@ -10,7 +10,7 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 export class AppComponent implements OnInit{
 
   name = "Sudoku";
-  difficultyCells = 10;
+  difficultyCells = 30;
 
   setDifficulty(difficulty){
 
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     switch (difficulty)
     {
       case "easy":
-        this.difficultyCells = 50;
+        this.difficultyCells = 42;
           break;
       case "medium":
         this.difficultyCells = 35;
