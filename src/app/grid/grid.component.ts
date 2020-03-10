@@ -19,14 +19,15 @@ export class GridComponent implements OnInit,OnChanges  {
 
   ngOnChanges(changes: SimpleChanges) {
     // Input change handling logic goes here   
-    alert('Generate now')
-     this.generateSudoku()
-    alert('inchnage'+this.numberOfCellsDisabled)
+        // alert('inchnage'+this.numberOfCellsDisabled)
       this.randomizeDisableCells(this.numberOfCellsDisabled);
+
   }
 
   constructor(private modalService: NgbModal) {
-    // this.solutionData = this.data;
+    // alert('Generate now')
+     this.generateSudoku()
+
   }
    ngOnInit() {
 
@@ -72,12 +73,12 @@ export class GridComponent implements OnInit,OnChanges  {
   }
 
   removeData(){
-    for(var j = 0; j < 9; j++) {
-      for(var i = 0; i < 9; i++) {
-        if(this.data[j][i].s == true)
-          this.data[j][i].v = null
-      }
-    }
+    // for(var j = 0; j < 9; j++) {
+    //   for(var i = 0; i < 9; i++) {
+    //     if(this.data[j][i].s == true)
+    //       this.data[j][i].v = null
+    //   }
+    // }
   }
 
 
@@ -141,6 +142,8 @@ export class GridComponent implements OnInit,OnChanges  {
         this.data[j][i].s == true
       }
     }
+    alert('all set To true');
+    alert('level sent'+noOfCells);
 
     while (counter < noOfCells) {
       xRan = this.getRandomInt(9);
@@ -153,7 +156,19 @@ export class GridComponent implements OnInit,OnChanges  {
       }
     }
 
-    this.removeData();
+      alert('disabled as per level');
+
+    // this.removeData();
+
+    for(var j = 0; j < 9; j++) {
+      for(var i = 0; i < 9; i++) {
+        if(this.data[j][i].s == true)
+          this.data[j][i].v = null
+      }
+    }
+
+    alert('Removed cell data')
+
 
   }
 
