@@ -17,12 +17,14 @@ export class AppComponent implements OnInit{
 
   constructor(private modalService: NgbModal) {
     // this.solutionData = this.data;
-     this.generateSudoku()
+    this.generateSudoku()
+    }
+
+ ngOnInit() {
     this.randomizeDisableCells(this.numberOfCellsDisabled);
     this.solutionData = this.data;
-    this.removeData();
+    this.removeData(); 
   }
-
 
   // isSolved(){
   //    alert(JSON.stringify(this.data));
@@ -67,10 +69,7 @@ export class AppComponent implements OnInit{
   }
 
 
-  ngOnInit() {
-   
-    // this.data[0][0].v = 10;
-  }
+ 
 
 
 // START || functions to generate sudoku 
