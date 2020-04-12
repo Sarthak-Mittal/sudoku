@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
 name = "Sudoku";
-difficultyCells = 80;
+difficultyCells = 35;
 
 setDifficulty(difficulty){
 
