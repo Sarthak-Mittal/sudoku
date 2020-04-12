@@ -35,7 +35,10 @@ export class GridComponent implements OnInit,OnChanges  {
 
   }
 
-
+  changeDifficulty(difficultyType){
+    console.log(difficultyType)
+    this.difficulty.emit(difficultyType)
+  }
 
   // isSolved(){
   //    alert(JSON.stringify(this.data));
