@@ -1,40 +1,38 @@
-import { Component, OnInit } from "@angular/core";
-import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
-
+import { Component } from '@angular/core';
 
 @Component({
-  selector: "my-app",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
 
-  name = "Sudoku";
-  difficultyCells = 30;
+name = "Sudoku";
+difficultyCells = 80;
 
-  setDifficulty(difficulty){
+setDifficulty(difficulty){
 
-    alert(difficulty)
-    switch (difficulty)
-    {
-      case "easy":
-        this.difficultyCells = 42;
-          break;
-      case "medium":
-        this.difficultyCells = 35;
-          break;
-      case "advanced": 
-        this.difficultyCells = 20;
-          break;
-    }
+  console.log("from parent:"+difficulty)
+  switch (difficulty)
+  {
+    case "easy":
+      this.difficultyCells = 42;
+        break;
+    case "medium":
+      this.difficultyCells = 35;
+        break;
+    case "advanced": 
+      this.difficultyCells = 20;
+        break;
   }
-  constructor(private modalService: NgbModal) {
-   
-    }
+}
+constructor() {
+ 
+}
 
 
-  ngOnInit() {
+ngOnInit() {
 
-  }
+}
 
 }

@@ -1,27 +1,39 @@
 
 h3 {
-  font-family: Lato;
-}
+    font-family: Lato;
+  }
+  
+  .ls-cover{
+    background-color: rgba(175, 172, 5, 0.884);
+    /* background-color: rgba(175, 5, 110, 0.884); */
+  }
+  .mr-cover{
+    background-color: rgb(0, 0, 0);
+  }
+  
+  .difficulty {
+    margin: 2em;
+  }
+  
+  .levels{
+    margin-right: 0.5em;
+    border: none;
+    margin-left: 0.5em;
+    background-color: rgb(206, 228, 85);
+    border-radius: 0.4em;
+    padding: 0.1em 1.2em;
+    /* text-transform: uppercase; */
+  
+  }
+  
+  .winner{
+    /* background-color: green; */
+    color: green;
+    font-weight: 900;
+  }
 
-.ls-cover{
-  background-color: rgba(175, 172, 5, 0.884);
-  /* background-color: rgba(175, 5, 110, 0.884); */
-}
-.mr-cover{
-  background-color: rgb(0, 0, 0);
-}
-
-.difficulty {
-  margin: 2em;
-}
-
-.levels{
-  margin-right: 0.5em;
-  border: none;
-  margin-left: 0.5em;
-  background-color: rgb(206, 228, 85);
-  border-radius: 0.4em;
-  padding: 0.1em 1.2em;
-  /* text-transform: uppercase; */
-
-}
+  .loser{
+    /* background-color: orangered; */
+    color: orangered;
+    font-weight: 900;
+  }

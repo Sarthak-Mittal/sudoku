@@ -18,7 +18,9 @@ export class NumPickerComponent implements OnInit {
       [{v:7 }, {v:8 },{v:9 },]
   ]
 
-  constructor(private modalService: NgbModal) { }
+  constructor(
+    private modalService: NgbModal
+    ) { }
 
   ngOnInit() {
   }

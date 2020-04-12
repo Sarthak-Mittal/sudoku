@@ -20,8 +20,10 @@ export class GridComponent implements OnInit,OnChanges  {
   @Output() difficulty = new EventEmitter();
 
   isFinished : boolean = false;
+  sudokuSubmitted : boolean = false;
 
   ngOnChanges(changes: SimpleChanges) {
+    console.log('called ng on changes')
     this.randomizeDisableCells(this.numberOfCellsDisabled);
   }
 
@@ -35,45 +37,65 @@ export class GridComponent implements OnInit,OnChanges  {
 
   }
 
+  checkSolution(){
+
+    console.log('in chcek solo')
+    if(this.isSolved() == true ){
+      this.isFinished = true
+    }else{
+      this.isFinished = false
+    }
+    this.sudokuSubmitted = true    
+
+  }
+
   changeDifficulty(difficultyType){
+    this.sudokuSubmitted = false    
+    this.isFinished = null
+
     console.log(difficultyType)
     this.difficulty.emit(difficultyType)
   }
 
-  // isSolved(){
-  //    alert(JSON.stringify(this.data));
-  //    alert(JSON.stringify(this.solutionData));
-  //   alert('start is solved'+this.isFinished)
-  //   for(var j = 0; j < 9; j++) {
-  //     for(var i = 0; i < 9; i++) {
-  //       if( this.data[j][i].v == this.solutionData[j][i].v ){
-  //         this.isFinished = true
-  //         return;
-  //       }
-  //       else
-  //         this.isFinished = false
-  //     }
-  //   }
-  //   alert('end is solved'+this.isFinished)
-  // }
+  isSolved(){
+    for(var j = 0; j < 9; j++) {
+      for(var i = 0; i < 9; i++) {
+        if( this.data[j][i].v == this.SolData[j][i].v ){
+          // this.isFinished = true
+          continue;
+        }
+        else{
+          // this.isFinished = false
+          console.log('in chcek solo::False')
+          return false;
+        }
+      }
+    }
+    return true;
+  }
 
 // START || functions to disable random cells 
   // Randomly disable cell as per input parameter 
   randomizeDisableCells(noOfCells) {
     var xRan, yRan, counter = 0;
-
     this.data = null;
 
     this.sudokuService.getSudoku()
         .subscribe(heroes => this.data = heroes);
 
-    const solutionData = this.data;
+    // const solutionData = this.data;
+    for(var j = 0; j < 9; j++) {
+      for(var i = 0; i < 9; i++) {
+        this.SolData[j][i].v = this.data[j][i].v
+      }
+    }
+    console.log('solData:',this.SolData)
+    console.log('solData:',this.data)
 
     for(var j = 0; j < 9; j++) {
         for(var i = 0; i < 9; i++) {
-          this.data[j][i].s == true
+          this.data[j][i].s = true
         }
-
       }
         
       while (counter < noOfCells) {
@@ -82,8 +104,6 @@ export class GridComponent implements OnInit,OnChanges  {
         if(this.data[xRan][yRan].s){
           this.data[xRan][yRan].s = false;
           counter++;
-        }else{
-          continue;
         }
       }
 
@@ -109,20 +129,6 @@ export class GridComponent implements OnInit,OnChanges  {
   }
   recieveValue($event) {
     this.data[this.x][this.y].v = $event;
-
-    //    (async () => { 
-    //     // Do something before delay
-    //     // alert('before delay')
-    //     this.isSolved()
-
-    //     await this.delay(1000);
-    //      if(this.isFinished){
-    //       alert('FINISHED::'+this.isFinished) 
-    //      }else{
-    //       alert('else::'+this.isFinished) 
-    //      }
-    //     // Do something after
-    // })();
   }
 
   open(x, y, comp) {
@@ -131,5 +137,53 @@ export class GridComponent implements OnInit,OnChanges  {
     this.modalService.open(comp, { centered: true, size: "sm" });
   
   }
+
+  SolData = [
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ],
+    [
+      { v: 1, s: true },{ v: 2, s: true },{ v: 3, s: true },
+      { v: 4, s: true },{ v: 5, s: true },{ v: 6, s: true },
+      { v: 7, s: true },{ v: 8, s: true },{ v: 9, s: true }
+    ]
+  ];
 
 }

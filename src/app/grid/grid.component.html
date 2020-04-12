@@ -1,44 +1,83 @@
 <div class="row d-flex justify-content-center">
-	<div class="col-md-3">
+	<div *ngIf="!sudokuSubmitted" class="col-md-3">
 		<div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
 			<div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
 				<div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'">
 					<div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''">
 						<button
-              [disabled]="!cell.s"
-              id="{{i+1}}-{{j+1}}"
-              class="square"
-              [ngClass]="cell.s ? 'enable':'disable' "
-              (click)="open(i,j,content)"
-            >
-             <span> {{cell.v}} </span>
-            </button>
+							[disabled]="!cell.s"
+							id="{{i+1}}-{{j+1}}"
+							class="square"
+							[ngClass]="cell.s ? 'enable':'disable' "
+							(click)="open(i,j,content)"
+							>
+				            <span> {{cell.v}} </span>
+						</button>
 					</div>
 				</div>
 			</div>
 		</div>
+
 		<div class="difficulty d-flex justify-content-center">
-			<button class="levels"
-            (click)="changeDifficulty('easy')">Easy</button>
-			<button class="levels"
-            (click)="changeDifficulty('medium')">Medium</button>
-			<button class="levels"
-            (click)="changeDifficulty('advanced')">Advanced</button>
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-secondary">
+				  <input type="radio" name="options" id="option1" autocomplete="off" (click)="changeDifficulty('easy')" > 
+				  Easy
+				</label>
+				<label class="btn btn-secondary">
+				  <input type="radio" name="options" id="option2" autocomplete="off" (click)="changeDifficulty('medium')" checked>
+				   Medium
+				</label>
+				<label class="btn btn-secondary">
+				  <input type="radio" name="options" id="option3" autocomplete="off" (click)="changeDifficulty('advanced')"> 
+				  Hard
+				</label>
+			  </div>
 		</div>
+		<div class="difficulty d-flex justify-content-center">
+			<button type="button" class="btn btn-primary btn-lg btn-block" (click)="checkSolution()">Submit</button>
+		</div>
+
+	</div>
+	<div *ngIf="sudokuSubmitted" class="col-md-3">
+
+		<div class="difficulty d-flex justify-content-center">
+			<div class="card" style="width: 18rem;">
+				<div class="card-body" [ngStyle]="{'background-color':isFinished ? 'green' : 'red' }">
+					<div class="difficulty d-flex justify-content-center">
+						<h3 *ngIf="isFinished" class="card-title winner">You Won!</h3>
+						<h3 *ngIf="!isFinished" class="card-title loser">You Lost!</h3>
+					</div>
+					<div class="difficulty d-flex justify-content-center">
+						<h5 class="card-title">Play Again!</h5>
+					</div>
+					<div class="difficulty d-flex justify-content-center">
+						<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							<label class="btn btn-secondary">
+								<input type="radio" name="options" id="option1" autocomplete="off" (click)="changeDifficulty('easy')" > 
+								Easy
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="options" id="option2" autocomplete="off" (click)="changeDifficulty('medium')">
+								Medium
+							</label>
+							<label class="btn btn-secondary">
+								<input type="radio" name="options" id="option3" autocomplete="off" (click)="changeDifficulty('advanced')"> 
+								Hard
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>
 </div>
 
 
 <ng-template #content let-modal>
-	<!-- <div class="modal-header">
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div> -->
-	<!-- <div class="modal-body"> -->
 
 	<app-num-picker (click)="modal.dismiss('Cross click')" (messageEvent)="recieveValue($event)">
 	</app-num-picker>
 
-	<!-- </div> -->
 </ng-template>
