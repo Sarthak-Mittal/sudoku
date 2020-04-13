@@ -21,22 +21,22 @@
 
 		<div class="difficulty d-flex justify-content-center">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">
-				<label class="btn btn-secondary">
+				<label class="btn btn-secondary lvl-Sel">
 				  <input type="radio" name="options" id="option1" autocomplete="off" (click)="changeDifficulty('easy')" > 
 				  Easy
 				</label>
-				<label class="btn btn-secondary">
-				  <input type="radio" name="options" id="option2" autocomplete="off" (click)="changeDifficulty('medium')" checked>
+				<label class="btn btn-secondary lvl-Sel">
+				  <input type="radio" name="options" id="option2" autocomplete="off" (click)="changeDifficulty('medium')">
 				   Medium
 				</label>
-				<label class="btn btn-secondary">
+				<label class="btn btn-secondary lvl-Sel">
 				  <input type="radio" name="options" id="option3" autocomplete="off" (click)="changeDifficulty('advanced')"> 
 				  Hard
 				</label>
 			  </div>
 		</div>
-		<div class="difficulty d-flex justify-content-center">
-			<button type="button" class="btn btn-primary btn-lg btn-block" (click)="checkSolution()">Submit</button>
+		<div class="difficulty d-flex justify-content-center ">
+			<button type="button" class="btn btn-primary btn-lg btn-block submitButton" (click)="checkSolution()">Submit</button>
 		</div>
 
 	</div>

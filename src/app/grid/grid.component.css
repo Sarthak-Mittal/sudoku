@@ -36,3 +36,15 @@ h3 {
     color: orangered;
     font-weight: 900;
   }
+
+  .submitButton{
+    background-color: rgba(175, 67, 5, 0.884);
+    border-color: rgba(175, 67, 5, 0.884);
+  }
+  
+  .lvl-Sel{
+    background-color: rgb(180, 180, 180);
+    border-color: rgb(180, 180, 180);
+    color: black;
+    font-weight: 600;
+  }
