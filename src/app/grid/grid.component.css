@@ -4,7 +4,7 @@ h3 {
   }
   
   .ls-cover{
-    background-color: rgba(175, 172, 5, 0.884);
+    background-color: rgba(175, 67, 5, 0.884);
     /* background-color: rgba(175, 5, 110, 0.884); */
   }
   .mr-cover{
@@ -12,7 +12,7 @@ h3 {
   }
   
   .difficulty {
-    margin: 2em;
+    margin: 2vh;
   }
   
   .levels{
@@ -22,7 +22,6 @@ h3 {
     background-color: rgb(206, 228, 85);
     border-radius: 0.4em;
     padding: 0.1em 1.2em;
-    /* text-transform: uppercase; */
   
   }
   

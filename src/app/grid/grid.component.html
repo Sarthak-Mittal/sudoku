@@ -1,5 +1,6 @@
+<div class="wrapper container">
 <div class="row d-flex justify-content-center">
-	<div *ngIf="!sudokuSubmitted" class="col-md-3">
+  <div *ngIf="!sudokuSubmitted" class="col-md-3">
 		<div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
 			<div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
 				<div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'">
@@ -73,6 +74,7 @@
 		</div>
 		
 	</div>
+</div>
 </div>
 
 

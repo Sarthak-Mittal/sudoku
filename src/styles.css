@@ -3,10 +3,10 @@
 
 
 .square{
-  width: 2em;
-  height : 2em;
+  width: 2.2em;
+  height : 2.2em;
   /* border-radius: 0.5em; */
-  margin: 0.09em ;
+  margin: 0.03em ;
 }
 button{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -14,17 +14,13 @@ button{
 }
 
 .disable{
-  background-color: rgb(136, 136, 136);
+  background-color: rgb(180, 180, 180);
   color:  rgb(0, 0, 0);
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   /* font-size: 1.7 em; */
 }
 
-.enable{
-  background-color: rgb(255, 255, 255);
-  font-family:  Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  font-weight: lighter; 
-}
+
 
 
