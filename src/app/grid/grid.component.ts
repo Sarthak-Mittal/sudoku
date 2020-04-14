@@ -111,7 +111,7 @@ export class GridComponent implements OnInit,OnChanges  {
       for(var j = 0; j < 9; j++) {
         for(var i = 0; i < 9; i++) {
           if(this.data[j][i].s == true)
-          this.data[j][i].v = " "
+          this.data[j][i].v = 0
         }
       }
 

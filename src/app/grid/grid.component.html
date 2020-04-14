@@ -15,7 +15,9 @@
                 [ngClass]="cell.s ? 'enable':'disable' "
                 (click)="open(i,j,content)"
                 >
-                      <span> {{cell.v}} </span>
+                  <span *ngIf="cell.v != 0"> {{cell.v}} </span>
+                  <span *ngIf="cell.v == 0" [ngClass]="(cell.v == 0)?'cellWithZero':''">{{cell.v}}</span>
+                  <span></span>
               </button>
             </div>
             </div>

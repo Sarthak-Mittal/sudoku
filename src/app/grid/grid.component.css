@@ -50,12 +50,16 @@ h3 {
   }
 
   .cellPadRight{
-    padding-right: 0.3em;
+    padding-right: 0.4em;
   }
   .cellPadBottom{
-    padding-bottom: 0.3em;
+    padding-bottom: 0.4em;
   }
 
+.cellWithZero{
+  /* color: red; */
+   opacity: 0;
+}
 /* .parentOfGrid{
   background-color: red;
   width: 0px
