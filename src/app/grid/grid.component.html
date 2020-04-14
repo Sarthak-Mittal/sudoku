@@ -1,23 +1,27 @@
 <div class="wrapper container">
 <div class="row d-flex justify-content-center">
   <div *ngIf="!sudokuSubmitted" class="col-md-3">
-		<div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
-			<div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
-				<div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'">
-					<div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''">
-						<button
-							[disabled]="!cell.s"
-							id="{{i+1}}-{{j+1}}"
-							class="square"
-							[ngClass]="cell.s ? 'enable':'disable' "
-							(click)="open(i,j,content)"
-							>
-				            <span> {{cell.v}} </span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
+    <!-- <div class='parentOfGrid'> -->
+      <div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
+        <div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
+          <!-- <div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'"> -->
+            <!-- <div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''"> -->
+            <div [ngClass]="(i==2 || i==5)?'cellPadBottom':''">
+            <div [ngClass]="(j==2 || j==5)?'cellPadRight':''">
+              <button
+                [disabled]="!cell.s"
+                id="{{i+1}}-{{j+1}}"
+                class="square"
+                [ngClass]="cell.s ? 'enable':'disable' "
+                (click)="open(i,j,content)"
+                >
+                      <span> {{cell.v}} </span>
+              </button>
+            </div>
+            </div>
+        </div>
+      <!-- </div> -->
+		  </div>
 
 		<div class="difficulty d-flex justify-content-center">
 			<div class="btn-group btn-group-toggle" data-toggle="buttons">

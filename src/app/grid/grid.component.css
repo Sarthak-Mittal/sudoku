@@ -48,3 +48,15 @@ h3 {
     color: black;
     font-weight: 600;
   }
+
+  .cellPadRight{
+    padding-right: 0.3em;
+  }
+  .cellPadBottom{
+    padding-bottom: 0.3em;
+  }
+
+/* .parentOfGrid{
+  background-color: red;
+  width: 0px
+} */
