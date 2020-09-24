@@ -81,7 +81,7 @@ export class GridComponent implements OnInit,OnChanges  {
     this.data = null;
 
     this.sudokuService.getSudoku()
-        .subscribe(heroes => this.data = heroes);
+        .subscribe(returnedData => this.data = returnedData);
 
     // const solutionData = this.data;
     for(var j = 0; j < 9; j++) {

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mysudoku": {
+    "sudoku": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mysudoku",
+            "outputPath": "dist/sudoku",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,10 +27,7 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -66,18 +63,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "mysudoku:build"
+            "browserTarget": "sudoku:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "mysudoku:build:production"
+              "browserTarget": "sudoku:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mysudoku:build"
+            "browserTarget": "sudoku:build"
           }
         },
         "test": {
@@ -114,19 +111,19 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "mysudoku:serve"
+            "devServerTarget": "sudoku:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "mysudoku:serve:production"
+              "devServerTarget": "sudoku:serve:production"
             }
           }
         }
       }
     }
   },
-  "defaultProject": "mysudoku",
+  "defaultProject": "sudoku",
   "cli": {
-    "analytics": "e916298d-c481-46fd-a582-5285b66e2e73"
+    "analytics": "176afdb1-4c9b-434d-8bb1-71ebb2227767"
   }
 }

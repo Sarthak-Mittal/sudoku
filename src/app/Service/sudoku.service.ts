@@ -20,7 +20,7 @@ export class SudokuService {
 
     for(var i = 0; i < 6; i++) {
       r1 = this.getRandomInt(9); r2 = this.getRandomInt(9)
-      temp = data[r1]; data[r1] = data[r2];data[r2] = temp;
+      temp = data[r1]; data[r1] = data[r2]; data[r2] = temp;
     }
 
     this.fillRow(data, 0)    
