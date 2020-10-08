@@ -34,6 +34,6 @@ jobs:
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-        GITHUB_TOKEN: ${{ secrets.SHA256:qK2PuGso5dA95xjcEI6ZnX1caMeSm8gtJ1vHV31wpyk }}
+        GITHUB_TOKEN: ${{ SHA256:qK2PuGso5dA95xjcEI6ZnX1caMeSm8gtJ1vHV31wpyk }}
         BRANCH: gh-pages
         FOLDER: dist/Sudoku
