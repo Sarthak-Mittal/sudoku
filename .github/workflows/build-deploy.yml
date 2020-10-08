@@ -13,21 +13,39 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
+  stable:
+    name: Deno ${{ matrix.deno }} in ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        deno: ["v0.20.0", "v0.38.0", "v0.x", "v1.x", "nightly"]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Use Node.js 10.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
+      - name: Set up Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-    - name: Prepare and deploy
-      env:
-        GITHUB_TOKEN: SHA256:qK2PuGso5dA95xjcEI6ZnX1caMeSm8gtJ1vHV31wpyk
-      run: |
-        npm install
-        npm run ng -- deploy --base-href=/Sudoku/ --name="sarthak-mittal" --email="sarthakmittal20@gmail.com" --no-silent
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      - name: Checksum
+        run: npm run checksum
+
+      - name: Set up Deno ${{ matrix.deno }}
+        uses: ./
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Run deno
+        run: |
+          deno --version
+          deno run https://deno.land/std/examples/welcome.ts
