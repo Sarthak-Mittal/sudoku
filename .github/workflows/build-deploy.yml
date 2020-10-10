@@ -13,27 +13,38 @@ on:
     branches:
       - master
 jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+  stable:
+    name: Deno ${{ matrix.deno }} in ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
     steps:
-    - name: Checkout
-      uses: actions/checkout@v1
-    - uses: actions/setup-node@v1 #this installs node and npm for us
-      with:
-        node-version: '12.x'
-    - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-    
-    - name: Build
-      run: |
-        npm install
-        npm run-script deploy
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        GITHUB_TOKEN: SHA256:qK2PuGso5dA95xjcEI6ZnX1caMeSm8gtJ1vHV31wpyk
-        BRANCH: gh-pages
-        FOLDER: dist/Sudoku
+      - uses: actions/checkout@v2
+
+      - name: Set up Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Check
+        run: npm run check
+
+      - name: Build
+        run: npm run build
+
+      - name: Checksum
+        run: npm run checksum
+
+      - name: Set up Deno ${{ matrix.deno }}
+        uses: ./
+        with:
+          deno-version: ${{ matrix.deno }}
+
+      - name: Run deno
+        run: |
+          deno --version
+          deno run https://deno.land/std/examples/welcome.ts
