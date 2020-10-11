@@ -124,9 +124,6 @@ export class GridComponent implements OnInit,OnChanges  {
 
 // END || functions to disable random cells 
 
-  delay(ms: number) {
-      return new Promise( resolve => setTimeout(resolve, ms) );
-  }
   recieveValue($event) {
     this.data[this.x][this.y].v = $event;
   }
@@ -135,7 +132,6 @@ export class GridComponent implements OnInit,OnChanges  {
     this.x = x;
     this.y = y;
     this.modalService.open(comp, { centered: true, size: "sm" });
-  
   }
 
   SolData = [
