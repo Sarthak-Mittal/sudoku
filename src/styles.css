@@ -24,7 +24,7 @@ button{
   /* font-size: 1.7 em; */
 }
 
-.modal-content{
+.modal-picker .modal-content{
     background-color: transparent;
     border: 0px;
     border-radius: 0px;
