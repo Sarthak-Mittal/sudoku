@@ -10,7 +10,7 @@ To begin contributing have a look at the open issues [here](https://github.com/s
 1. Clone the repository
 ```
 git clone https://github.com/sarthak-mittal/sudoku.git
-cd ifsc
+cd sudoku
 ```
 2. Install dependencies
 ```
