@@ -20,7 +20,7 @@ Go to check it out here [here](https://sarthak-mittal.github.io/sudoku/)
 
 ## Introduction
 
-Typescript based sudoku game that can create unique Sudoku board based on 3 difficulty levels. 
+Angular based Sudoku game that can create unique Sudoku board based on 3 difficulty levels. 
 
 ## Description
 
