@@ -37,4 +37,4 @@ jobs:
       with:
         GITHUB_TOKEN: SHA256:qK2PuGso5dA95xjcEI6ZnX1caMeSm8gtJ1vHV31wpyk
         BRANCH: gh-pages
-        FOLDER: /docs/
+        FOLDER: docs
