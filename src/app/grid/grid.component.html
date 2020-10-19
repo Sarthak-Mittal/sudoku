@@ -1,45 +1,49 @@
 <div class="wrapper container">
     <div class="row d-flex justify-content-center">
         <div *ngIf="!sudokuSubmitted" class="col-md-3">
-            <!-- <div class='parentOfGrid'> -->
-            <div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
-                <div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
-                    <!-- <div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'"> -->
-                    <!-- <div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''"> -->
-                    <div [ngClass]="(i==2 || i==5)?'cellPadBottom':''">
-                        <div [ngClass]="(j==2 || j==5)?'cellPadRight':''">
-                            <button [disabled]="!cell.s" id="{{i+1}}-{{j+1}}" class="square"
-                                [ngClass]="cell.s ? 'enable':'disable' " (click)="open(i,j,content, 'modal-picker')">
-                                <span *ngIf="cell.v != 0"> {{cell.v}} </span>
-                                <span *ngIf="cell.v == 0" [ngClass]="(cell.v == 0)?'cellWithZero':''">{{cell.v}}</span>
-                                <span></span>
-                            </button>
+            <!-- <div class=" vertical-center"> -->
+                <div class='container my-cont'>
+                    <div *ngFor='let row of data; let i=index' class="d-flex justify-content-center">
+                        <div *ngFor='let cell of row; let j=index' class="d-flex justify-content-center">
+                            <!-- <div [ngClass]="(i>2&&i<6 || j>2&&j<6)?'ls-cover':'mr-cover'"> -->
+                            <!-- <div [ngClass]="(i>2&&i<6 && j>2&&j<6)?'mr-cover':''"> -->
+                            <div [ngClass]="(i==2 || i==5)?'cellPadBottom':''">
+                                <div [ngClass]="(j==2 || j==5)?'cellPadRight':''">
+                                    <button [disabled]="!cell.s" id="{{i+1}}-{{j+1}}" class="square"
+                                        [ngClass]="cell.s ? 'enable':'disable' "
+                                        (click)="open(i,j,content, 'modal-picker')">
+                                        <span *ngIf="cell.v != 0"> {{cell.v}} </span>
+                                        <span *ngIf="cell.v == 0"
+                                            [ngClass]="(cell.v == 0)?'cellWithZero':''">{{cell.v}}</span>
+                                        <span></span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- </div> -->
-            </div>
+            <!-- </div> -->
 
-            <div class="difficulty d-flex justify-content-center">
+            <div class="difficulty d-flex justify-content-center fixed-bottom">
                 <div class="btn-group btn-group-toggle" data-toggle="buttons">
                     <label class="btn btn-secondary lvl-Sel">
-                        <input type="radio" name="options" id="option1" autocomplete="off"
+                        <input type="radio" id="option1" autocomplete="off"
                             (click)="changeDifficulty('easy')">
                         Easy
                     </label>
                     <label class="btn btn-secondary lvl-Sel">
-                        <input type="radio" name="options" id="option2" autocomplete="off"
+                        <input type="radio" id="option2" autocomplete="off"
                             (click)="changeDifficulty('medium')">
                         Medium
                     </label>
                     <label class="btn btn-secondary lvl-Sel">
-                        <input type="radio" name="options" id="option3" autocomplete="off"
+                        <input type="radio" id="option3" autocomplete="off"
                             (click)="changeDifficulty('advanced')">
                         Hard
                     </label>
                 </div>
             </div>
-            <div class="difficulty d-flex justify-content-center ">
+            <div class="submitBtn justify-content-center fixed-bottom">
                 <button type="button" class="btn btn-primary btn-lg btn-block submitButton"
                     (click)="checkSolution()">Submit</button>
             </div>
@@ -61,17 +65,17 @@
                         <div class="difficulty d-flex justify-content-center">
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                                 <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option1" autocomplete="off"
+                                    <input type="radio"  id="option1" autocomplete="off"
                                         (click)="changeDifficulty('easy')">
                                     Easy
                                 </label>
                                 <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"
+                                    <input type="radio"  id="option2" autocomplete="off"
                                         (click)="changeDifficulty('medium')">
                                     Medium
                                 </label>
                                 <label class="btn btn-secondary">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"
+                                    <input type="radio"  id="option3" autocomplete="off"
                                         (click)="changeDifficulty('advanced')">
                                     Hard
                                 </label>
