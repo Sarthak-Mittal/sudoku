@@ -1,8 +1,8 @@
 {
   "name": "Sudoku",
   "short_name": "Sudoku",
-  "theme_color": "#1976d2",
-  "background_color": "#fafafa",
+  "theme_color": "#af4305",
+  "background_color": "#af4305",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",
