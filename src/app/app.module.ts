@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { GridComponent } from './grid/grid.component';
 import { NumPickerComponent } from './num-picker/num-picker.component';
 import { SudokuService } from './Service/sudoku.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { SudokuService } from './Service/sudoku.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [SudokuService],
   bootstrap: [AppComponent]
